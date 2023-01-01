@@ -6,10 +6,10 @@ class Task:
 
     # REQUIRES: length of description must be > 0
     # EFFECTS: constructs a task with given description and prio
-    #          prio is set up as -1 so that its added to the 
-    #          back of the list of tasks, but it can be modified
+    #          pre-set as 1 but can be modified
+    #          throws an EmptyStringException if len(description) <= 0
     # MODIFIES: self
-    def __init__(self, description: str, prio: int=-1) -> None:
+    def __init__(self, description: str, prio: int=1) -> None:
         self.description = description
         self.prio = prio
 
@@ -25,3 +25,8 @@ class Task:
     # MODIFIES: self
     def setPrio(self, prio: int) -> None: 
         self.prio = prio
+
+    # EFFECTS: sets description as given description
+    # MODIFIES: self
+    def setDescription(self, description: str) -> None:
+        self.description = description

@@ -1,4 +1,4 @@
-import Task
+from Task import Task
 
 class Tasks:
 
@@ -14,9 +14,21 @@ class Tasks:
 
     # EFFECTS: adds the given task to the list of tasks
     def addTask(self, task: Task) -> None:
-        self.tasks.insert(task.getPrio, task)
+        self.tasks.append(task)
 
     # EFFECTS: removes the given task from the list of tasks
     def removeTask(self, task: Task) -> None: 
         self.tasks.remove(task)
 
+    # EFFECTS: list in order
+    def refresh(self) -> None: 
+        self.tasks.sort(key=lambda x: x.getPrio())
+
+
+task = Task("hello", 2)
+task1 = Task("hi", 1)
+tasks = Tasks()
+tasks.addTask(task)
+tasks.addTask(task1)
+tasks.refresh()
+print(tasks.getTasks()[0].getDescription())

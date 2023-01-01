@@ -12,6 +12,7 @@ This project is the study environment for the students, where the application ha
 
 ## Phase 1
 - [ ] construct model package and its necessary classes
-    - [ ] Account, Task, Tasks, etc classes
+    - [x] Account, Task, Tasks, etc classes
 - [ ] construct ui package and its necessary classes (console base)
 - [ ] construct tests for each and every model classes
+- [ ] construct exceptions
