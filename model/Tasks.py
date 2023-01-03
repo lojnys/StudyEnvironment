@@ -1,6 +1,6 @@
 from Task import Task
 
-class Tasks:
+class Tasks():
 
     """Represents a list of tasks"""
 
@@ -25,10 +25,9 @@ class Tasks:
         self.tasks.sort(key=lambda x: x.getPrio())
 
 
-task = Task("hello", 2)
-task1 = Task("hi", 1)
-tasks = Tasks()
-tasks.addTask(task)
-tasks.addTask(task1)
-tasks.refresh()
-print(tasks.getTasks()[0].getDescription())
+    def toJson(self) -> list:
+        list = []
+        for task in self.tasks:
+            list.append(task.toJson())
+
+        return list
