@@ -1,7 +1,7 @@
 # StudyEnvironment
 
 ## Description
-This project is the study environment for the students, where the application has two parts, to-do list and the timer. It will be useful for the student who needs to pay attention to their study. The application will furthermore remember the to-do list according to their account. Thus, this application will also include log-in functionality. 
+This project is the study environment for the students, where the application has two parts, to-do list and the timer. It will be useful for the student who needs to pay attention to their study. The application will furthermore remember the to-do list according to their account. Thus, this application will also include log-in functionality. This programming process was brought from the course I took, CPSC 210 Software Engineering in University of British Columbia. The project is divided into 4 different phases: 1) console based application, 2) data persistence, 3) GUI, 4) EventLog and theoreticals. However I have moved the EventLog part to the second phase and the fourth phase will be on filling up gaps, looking more bugs and making the program more robust.
 
 ## User Stories
 - As an user, I want to be able to register for an account
@@ -10,9 +10,26 @@ This project is the study environment for the students, where the application ha
 - As an user, I want to be able to edit my profile
 - As an user, I want to be able to delete my account
 
-## Phase 1
-- [ ] construct model package and its necessary classes
+## Phase 1 (Console Based Application)
+- [x] construct model package and its necessary classes
     - [x] Account, Task, Tasks, etc classes
 - [ ] construct ui package and its necessary classes (console base)
-- [ ] construct tests for each and every model classes
-- [ ] construct exceptions
+- [x] construct tests for each and every model classes
+- [x] construct exceptions
+- [ ] add a Container or Subject class so that tasks can be divided into categories (try Composite design pattern)
+
+## Phase 2 (Data Persistance)
+- [x] add a super class of Account so that the data can be persisted in json(Recordable)
+- [x] add a folder called 'data' so that the json files can be organized
+- [x] appropriately modify each Task and Tasks class to be persisted
+- [ ] add a log functionality so that it records each activity taken (try Singleton design pattern)
+
+
+## Daily log
+(... no record)
+*01/03/23*
+- Created and modified Account and Recordable classes
+    - Recordable class was for data persistance which was supposed to be done in Phase 2
+    - Applied inheritence
+- Added toJson() methods in both Task and Tasks classes so that the data from each class can be neatly persisted
+- Added data package/folder for the json files
