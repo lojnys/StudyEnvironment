@@ -39,4 +39,4 @@ This project is the study environment for the students, where the application ha
     - This class is a study task (inheritance) for a given subject with the time allocated to study
 - Created a TaskComponent class 
     - Applied Composite Desgin Pattern
-- 
+- Rendered TasksTest class
