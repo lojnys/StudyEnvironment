@@ -22,7 +22,7 @@ class Account(Recordable):
             self.username = username
             self.password = password
             self.email = email
-            self.tasks = Tasks()
+            self.tasks = Tasks("Main")
             self.logInStatus = False
 
     # EFFECTS: delets the object

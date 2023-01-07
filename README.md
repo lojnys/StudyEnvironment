@@ -16,7 +16,7 @@ This project is the study environment for the students, where the application ha
 - [ ] construct ui package and its necessary classes (console base)
 - [x] construct tests for each and every model classes
 - [x] construct exceptions
-- [ ] add a Container or Subject class so that tasks can be divided into categories (try Composite design pattern)
+- [x] add a TaskComponent class so that tasks can have a sub-tasks (try Composite design pattern)
 
 ## Phase 2 (Data Persistance)
 - [x] add a super class of Account so that the data can be persisted in json(Recordable)
@@ -26,10 +26,17 @@ This project is the study environment for the students, where the application ha
 
 
 ## Daily log
-(... no record)
+(... no record)\
 *01/03/23*
 - Created and modified Account and Recordable classes
     - Recordable class was for data persistance which was supposed to be done in Phase 2
     - Applied inheritence
 - Added toJson() methods in both Task and Tasks classes so that the data from each class can be neatly persisted
 - Added data package/folder for the json files
+
+*01/06/23*
+- Created a Subject class
+    - This class is a study task (inheritance) for a given subject with the time allocated to study
+- Created a TaskComponent class 
+    - Applied Composite Desgin Pattern
+- 
