@@ -34,9 +34,9 @@ class TaskTest(unittest.TestCase):
 
         except EmptyStringException:
             pass
-        except PriorityLessThanOneException:
-            print("Unexpected PriorityLessThanOneException raised")
-            raise False
+
+        except PriorityLessThanOneException as pltoe:
+            raise pltoe("Unexpected PriorityLessThanOneException raised")
 
     def test_initPriorityLessThanOneExceptionRaised(self):
 
@@ -44,12 +44,18 @@ class TaskTest(unittest.TestCase):
             testTask2 = Task("a", 0)
             raise False
 
-        except EmptyStringException:
-            print("Unexpected EmptyStringException raised")
-            raise False
+        except EmptyStringException as ese:
+            raise ese("Unexpected EmptyStringException raised")
+
         except PriorityLessThanOneException:
             pass
     
+
+    def test_toJson(self):
+        task = Task("abcd", 2)
+
+        self.assertEqual(task.toJson(), {"description": "abcd", "priority": 2, "finished": False})
+
 
 if __name__ == "__main__":
     unittest.main()

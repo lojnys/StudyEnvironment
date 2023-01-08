@@ -7,17 +7,17 @@ class Subject(Task):
 
     # EFFECTS: constructs a study task with given subject name and a goal time of 2 hours
     #          the goal time can be modified
-    def __init__(self, subName: str, goal: int = 2) -> None:
+    def __init__(self, subName: str, goal: float = 2) -> None:
         super().__init__(subName + " Study", 1)
         self.goal = goal
 
     # EFFECTS: returns the goal time of the study task
-    def getGoal(self) -> int:
+    def getGoal(self) -> float:
         return self.goal
 
     # EFFECTS: sets the goal time as the given value
     # MODIFIES: self
-    def setGoal(self, goal: int) -> None:
+    def setGoal(self, goal: float) -> None:
         self.goal = goal
 
     # overriding toJson() method from Task

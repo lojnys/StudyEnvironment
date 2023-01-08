@@ -49,7 +49,7 @@ class Task(TaskComponent):
         """overriding from TaskComponent class"""
         dict = {
             "description": self.description,
-            "priotity": self.prio,
+            "priority": self.prio,
             "finished": self.finished
         }
         
