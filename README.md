@@ -40,3 +40,6 @@ This project is the study environment for the students, where the application ha
 - Created a TaskComponent class 
     - Applied Composite Desgin Pattern
 - Rendered TasksTest class
+
+*01/08/23*
+- Finished up tests
