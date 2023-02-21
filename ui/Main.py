@@ -1,8 +1,9 @@
+from StudyEnvironment import StudyEnvironment
 
 class Main: 
 
     def __init__(self) -> None:
-        pass
+        StudyEnvironment()
 
 
 

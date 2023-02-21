@@ -1,6 +1,5 @@
 import string
 import sys
-from TaskComponent import TaskComponent
 
 sys.path.append("/Users/yushinnam/Desktop/python3/StudyEnvironment/exceptions")
 
@@ -8,18 +7,34 @@ from EmptyStringException import EmptyStringException
 from PriorityLessThanOneException import PriorityLessThanOneException
 
 
-class Task(TaskComponent):
+class Task():
 
     """Represents a task"""
 
     # EFFECTS: constructs a task with given description and prio
     def __init__(self, description: str, prio: int=1) -> None:
-        super().__init__(description, prio)
+        if not any([x in description for x in string.ascii_letters]):        # first make string.ascii_letters into list and then check if each one of them are in the description then logic with not any()
+            raise EmptyStringException("Empty description given")
+        else:
+            self.description = description
+
+        if (prio < 1):
+            raise PriorityLessThanOneException("Forbidden priority given")
+        else:
+            self.prio = prio
         self.finished = False
 
     # EFFECTS: returns whether the task is finished or not
     def getFinished(self) -> bool:
         return self.finished
+
+     # EFFECTS: returns description
+    def getDescription(self) -> str:
+        return self.description
+
+    # EFFECTS: returns priority
+    def getPrio(self) -> int:
+        return self.prio
 
     # EFFECTS: sets priority to its given integer
     #          throws PriorityLessThanOneException if given prio is less than 1

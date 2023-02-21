@@ -14,9 +14,14 @@ This project is the study environment for the students, where the application ha
 - [x] construct model package and its necessary classes
     - [x] Account, Task, Tasks, etc classes
 - [ ] construct ui package and its necessary classes (console base)
+    - [x] log in (and retrieving tasks when logged in)
+    - [x] register
+    - [x] log out
+    - [x] add task
 - [x] construct tests for each and every model classes
 - [x] construct exceptions
 - [x] add a TaskComponent class so that tasks can have a sub-tasks (try Composite design pattern)
+- [ ] add a timer to keep track of study time
 
 ## Phase 2 (Data Persistance)
 - [x] add a super class of Account so that the data can be persisted in json(Recordable)
@@ -26,7 +31,7 @@ This project is the study environment for the students, where the application ha
 
 
 ## Daily log
-(... no record)\
+(... no record)
 *01/03/23*
 - Created and modified Account and Recordable classes
     - Recordable class was for data persistance which was supposed to be done in Phase 2
@@ -43,3 +48,16 @@ This project is the study environment for the students, where the application ha
 
 *01/08/23*
 - Finished up tests
+
+*01/12/23*
+- Started constructing StudyEnvironment class
+- Had trouble with "log in" functionality but **fixed**
+    - after registration and adding a task, logging in and retrieving the tasks was not successful
+- Added registration method
+- In need of adding section (or tasks inside of tasks) and study task (or subject)
+
+*02/21/2023*
+- From *01/12/23* till now, have been editing the scripts; deleted some classes and fixed up certain data persistence mechanism
+- Added tasks list and adder frame on the left of the screen
+- Had trouble with fromJson() and toJson() methods, since when froJson() is called, each Task data is not converted to Task class. - *fixed; but needs to be analyzed further*
+- wants to change the design of the menubutton/button of each task

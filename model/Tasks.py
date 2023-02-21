@@ -1,26 +1,60 @@
 from Task import Task
-from TaskComponent import TaskComponent
+import sys
+import string
+sys.path.append("/Users/yushinnam/Desktop/python3/StudyEnvironment/exceptions")
 
-class Tasks(TaskComponent):
+from EmptyStringException import EmptyStringException
+from PriorityLessThanOneException import PriorityLessThanOneException
+
+class Tasks():
 
     """Represents a list of tasks"""
-
+    #!!!
     # EFFECTS: constructs an empty list of tasks
-    def __init__(self, description: str, prio: int = 1) -> None:
-        super().__init__(description, prio)
-        self.tasks = []
+    def __init__(self, prev: list) -> None:
+        if prev == []:
+            self.tasks = prev
+        else:
+            self.tasks =  self.fromJson(prev)
+
+
+    def fromJson(self, list: list) -> list:
+        result = []
+        for entry in list:
+            task = Task(entry["description"], entry["priority"])
+            result.append(task)
+
+        return result
+
+    def toJson(self) -> list:
+        list = []
+        for task in self.tasks:
+            list.append(task.toJson())
+
+        return list
+
 
     # EFFECTS: returns the list of tasks itself
     def getTasks(self) -> list: 
         return self.tasks
 
+    def setTasks(self, tasks: list) -> None:
+        self.tasks = tasks
+
+    #  # EFFECTS: returns description
+    # def getDescription(self) -> str:
+    #     return self.description
+
+    # # EFFECTS: returns priority
+    # def getPrio(self) -> int:
+    #     return self.prio
 
     # EFFECTS: adds the given task to the list of tasks
-    def addTask(self, task: TaskComponent) -> None:
+    def addTask(self, task: Task) -> None:
         self.tasks.append(task)
 
     # EFFECTS: removes the given task from the list of tasks
-    def removeTask(self, task: TaskComponent) -> None: 
+    def removeTask(self, task: Task) -> None: 
         self.tasks.remove(task)
 
     # EFFECTS: list in order
@@ -28,22 +62,19 @@ class Tasks(TaskComponent):
         self.tasks.sort(key=lambda x: x.getPrio())
 
 
-    def toJson(self) -> dict:
-        """overriding from TaskComponent class"""
-        list = []
-        for task in self.tasks:
-            list.append(task.toJson())
+    # def toJson(self) -> list:
+    #     list = []
+    #     for entry in self.tasks:
+    #         task = Task(entry["description"], entry["priority"])
+    #         list.append(task.toJson())
 
-        return {"description": self.description, "list": list}
+    #     return list
 
 
-# tasks = Tasks("School")
-# tasks.addTask(Tasks("Work"))
-# tasks.addTask(Task("Math 300 Study"))
-# tasks.addTask(Tasks("Home"))
+    # def fromJson(self, list: list) -> list:
+    #     result = []
+    #     for entry in list:
+    #         task = Task(entry["description"], entry["priority"])
+    #         result.append(task)
 
-# for task in tasks.getTasks():
-#     if (task.getDescription() == "Work"):
-#         task.addTask(Task("Doing the Laundry"))
-
-# print(tasks.toJson())
+    #     return result
