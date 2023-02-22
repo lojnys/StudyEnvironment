@@ -106,10 +106,6 @@ class StudyEnvironment(tk.Tk):
         task_adder = tk.Frame(task_containter)
         task_adder_entry = tk.Entry(task_adder)
 
-        if (self.account.getTasks().getTasks() != []):
-            for task in self.account.getTasks().getTasks():
-                task_button = tk.Menubutton(task_list, text=task.getDescription(), height=3) # add command
-                task_button.pack()
 
         task_list.pack(side=tk.TOP, fill=tk.BOTH, expand=1)
 
@@ -124,6 +120,18 @@ class StudyEnvironment(tk.Tk):
 
         task_adder.pack(side=tk.BOTTOM)
 
+        if (self.account.getTasks().getTasks() != []):
+            for task in self.account.getTasks().getTasks():
+                task_button = tk.Menubutton(task_list, text=task.getDescription(), height=10, width=20, compound=tk.BOTTOM) # add command
+                
+                menu = tk.Menu(task_button)
+                task_button["menu"] = menu
+
+                menu.add_command(label="Mark as done", command=lambda:self.setFinished(task))
+                menu.add_command(label="Edit Task", command=lambda:self.editTask(task, description.get(), int(prio.get())))
+
+                task_button.pack()
+
         task_containter.pack(side=tk.LEFT, fill=tk.BOTH, expand=0)
 
         self.mainloop()
@@ -133,4 +141,16 @@ class StudyEnvironment(tk.Tk):
         task = Task(description, prio)
         tasks.addTask(task)
 
+        self.accountList.toJson()
+
+
+    def setFinished(self, task: Task) -> None:
+        task.setFinished()
+        self.account.getTasks().removeTask(task)
+        self.accountList.toJson()
+
+
+    def editTask(self, task: Task, description: str, prio: int) -> None:
+        task.setDescription(description)
+        task.setPrio(prio)
         self.accountList.toJson()
