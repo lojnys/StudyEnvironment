@@ -29,6 +29,13 @@ This project is the study environment for the students, where the application ha
 - [x] appropriately modify each Task and Tasks class to be persisted
 - [ ] add a log functionality so that it records each activity taken (try Singleton design pattern)
 
+## Phase 3 (GUI)
+- [x] add a log in interface
+- [ ] two sections; one is for the tasks and adding tasks and one for the timer
+    - [x] tasks section
+    - [ ] timer section
+- [ ] add a pop-up window for each log-in, register, etc
+
 
 ## Daily log
 (... no record)
@@ -61,3 +68,9 @@ This project is the study environment for the students, where the application ha
 - Added tasks list and adder frame on the left of the screen
 - Had trouble with fromJson() and toJson() methods, since when froJson() is called, each Task data is not converted to Task class. - *fixed; but needs to be analyzed further*
 - wants to change the design of the menubutton/button of each task
+
+
+*02/22/2023*
+- Added a menu button with two menu: edit task and mart as done
+- Successfully mart as done and remove the task from the list
+- Want to update the window for every second (or as soon as possible)
